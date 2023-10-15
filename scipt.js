@@ -1,3 +1,8 @@
+function randon_n(n1,n2){
+    random_number = Math.floor(Math.random()*n2)+n1;
+    return random_number
+}
+
 //Realizando a busca para consumir todos os nomes dos pokemons com call back de erro, para colocar em uma lista
 function api_pokemon(name){
     fetch('https://pokeapi.co/api/v2/pokemon/'+name.toString().toLowerCase())
@@ -8,14 +13,21 @@ function api_pokemon(name){
         return Response.json()
     })
     .then(data => {
-        img = document.getElementById("poke_img")
-        img.src = data.sprites.front_default
         console.log(data);
-        
+        cards = document.getElementById('cards')
+        cards.innerHTML = `<div class="card"><img class="poke_img" src="${data.sprites.other["official-artwork"].front_default}"></div>`
+        cards.innerHTML += `<div class="card"><img class="poke_img" src="${data.sprites.other["official-artwork"].front_shiny}"></div>`
+        poke_name = document.getElementById("name_poke_inf")
+        poke_name.innerHTML = data.name.toUpperCase()
     })
     .catch(error =>{
         console.error("Error", error);
     })
+}
+
+//funcão para enviar no input os valores buscados na api
+function send_value(){
+    api_pokemon(value_li)
 }
 
 pokename_list=[]
@@ -64,19 +76,11 @@ search_input.addEventListener("keyup",(e)=>{
         ol = document.getElementById("auto_complete")
         ol.innerHTML = ""
         for(i of auto_complete){
-           value_li = ol.innerHTML += `<ul id="${i}"onclick="getValueById('${i}')">${i}</ul>`
+           value_li = ol.innerHTML += `<li id="${i}"onclick="getValueById('${i}')">${i}</li>`
         }
     }else{
         ol.innerHTML = ""
     }
 })
 
-//funcão para enviar no input os valores buscados na api
-function send_value(){
-    api_pokemon(value_li)
-}
-
-
-
-
-    
+api_pokemon(randon_n(1,1017))

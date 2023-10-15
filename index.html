@@ -9,10 +9,28 @@
 <body>
     <div class="top">dsa</div>
     <div class="containnerBody">
-       <div class="sidebar"></div>
+       <div class="sidebar">
+        <div class="cardSideBar">
+            sidebarcard
+        </div>
+       </div>
        <div class="content">
             <div class="img">
                 <img src="https://upload.wikimedia.org/wikipedia/el/b/b5/English_Pokémon_logo.svg.png" id="poke_img" alt="">
+            </div>
+            <div class="search">
+                <div style="color: rgb(190, 190, 190);">Search your Pokémon</div>
+                <input type="Search"id="poke_name" placeholder="Pokémon">
+                <button onclick="send_value()">Search</button>
+                <button onclick="api_pokemon(randon_n(1,1017))">Randon</button>
+                <ol id="auto_complete"></ol>
+            </div>
+            <div class="containnerCardBody">
+                <div id="cards"></div>
+                <div id="container_infs">
+                    <div id="name_poke_inf"></div>
+
+                </div>
             </div>
        </div>
     </div>

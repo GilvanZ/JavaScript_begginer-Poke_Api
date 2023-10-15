@@ -1,3 +1,8 @@
+function byId(id, api_path){
+    i = document.getElementById(id)
+    i.innerHTML = api_path.toString().toUpperCase()
+}
+/* Função para pegar um numero aleatorio*/
 function randon_n(n1,n2){
     random_number = Math.floor(Math.random()*n2)+n1;
     return random_number
@@ -16,9 +21,24 @@ function api_pokemon(name){
         console.log(data);
         cards = document.getElementById('cards')
         cards.innerHTML = `<div class="card"><img class="poke_img" src="${data.sprites.other["official-artwork"].front_default}"></div>`
-        cards.innerHTML += `<div class="card"><img class="poke_img" src="${data.sprites.other["official-artwork"].front_shiny}"></div>`
+        if(data?.sprites?.other?.dream_world?.front_default){
+            cards.innerHTML += `<div class="card"><img class="poke_img" src="${data.sprites.other.dream_world.front_default}"></div>`
+        }
+        if(data?.sprites?.other?.home?.front_default){
+            cards.innerHTML += `<div class="card"><img class="poke_img" src="${data.sprites.other.home.front_default}"></div>`
+        }
+        
         poke_name = document.getElementById("name_poke_inf")
         poke_name.innerHTML = data.name.toUpperCase()
+        byId("type_str","Type: ")
+        if (data?.types?.[1]?.type?.name){
+            byId("type_api",data.types[0].type.name +" - "+ data.types[1].type.name)
+        }else{
+            byId("type_api",data.types[0].type.name)
+        }
+        byId("id_str","ID")
+        byId("id_api",data.id)
+        
     })
     .catch(error =>{
         console.error("Error", error);
@@ -28,6 +48,7 @@ function api_pokemon(name){
 //funcão para enviar no input os valores buscados na api
 function send_value(){
     api_pokemon(value_li)
+    cards.innerHTML = ""
 }
 
 pokename_list=[]

@@ -17,7 +17,7 @@ button{
     border-bottom: 2px solid #ffcb05 ;
     
 }
-.containnerBody {
+.containerBody {
     height: calc(100vh - 100px); /* Altura da tela (100vh) menos altura do cabeçalho (100px) */
     color: #000;
     display: flex;
@@ -38,7 +38,7 @@ button{
             background-color: #ffffff;
         }
             #poke_img{
-                width: 15%;
+                width: 20%;
                 margin-left: 50%;
                 margin-right: 50%;
                 transform: translate(-50%);
@@ -70,31 +70,69 @@ button{
                 display: flex;
                 justify-content: center;
                 
+                
             }
                 .card{
                     margin-top: 10px;
-                    width: 150px;
-                    height: 150px;
+                    width: 200px;
+                    height: 200px;
                     border-radius: 20px;
                     border-bottom: #c7a008 5px solid;
                     border-top: #c7a008 1px solid;
                     border-left: #c7a008 2 px solid;
                     border-right: #c7a008 5px solid;
                     margin: 5px;
+                    overflow: hidden;
+                    
                 }
                 .poke_img{
-                    width: 150px;
+                    width: 85%;
+
+                    
                 }
-                .container_infs{
+                #container_infs{
+                    margin-top: 30px;
                     width: calc(100vw - 90px);
-                    height: calc(100vh - 150px);
+                    height: calc(100vh - 195px);
+                    padding: 0px;
+                    
                 }
-                #name_poke_inf{
-                    margin-top: 15px;
-                    font-size: xx-large;
-                    font-family: Arial, Helvetica, sans-serif;
-                    color: #3c5aa6;
-                }
+                    #name_poke_inf{
+                        margin-top: 15px;
+                        font-size: xx-large;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: #3c5aa6;
+                    }
+                    .data_container_left{
+                        margin-left: 50px;
+                        width: 250px;
+                        height: 20px;
+                        border: solid #c7a008 1px;
+                        border-bottom-left-radius: 5px;
+                        border-top-left-radius: 5px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: #3c5aa6;
+                        font-size:larger;
+                        background-image: linear-gradient(45deg, #54efff, #fbdf71);
+                    }
+                    .data_container_rigth{
+                        width: 250px;
+                        height: 20px;
+                        border: solid #c7a008 1px;
+                        border-bottom-right-radius: 5px;
+                        border-top-right-radius: 5px;
+                        background-image: linear-gradient(45deg, #fbdf71 , #54efff);
+                        text-align: calc(50vh);
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: #3c5aa6;
+                        font-size:larger
+
+                    }
+                    .show_content{
+                        display: flex;
+
+                    }
+        
         
 ol{
     width: 100%;

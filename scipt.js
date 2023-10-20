@@ -27,10 +27,14 @@ function api_pokemon(name){
         if(data?.sprites?.other?.home?.front_default){
             cards.innerHTML += `<div class="card"><img class="poke_img" src="${data.sprites.other.home.front_default}"></div>`
         }
+        //Atribuindo uma imagem de fundo
+        background = data.types[0].type.name.toString()
+        
         
         poke_name = document.getElementById("name_poke_inf")
         poke_name.innerHTML = data.name.toUpperCase()
         byId("type_str","Type: ")
+        //verificando se o segundo tipo existe
         if (data?.types?.[1]?.type?.name){
             byId("type_api",data.types[0].type.name +" - "+ data.types[1].type.name)
         }else{
